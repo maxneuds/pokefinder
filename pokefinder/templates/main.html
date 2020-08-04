@@ -1,0 +1,53 @@
+{% load leaflet_tags %}
+{% load static %}
+<html>
+
+<head>
+  {% leaflet_js %}
+  {% leaflet_css %}
+
+  {{ data|json_script:"pokemon-data" }}
+
+
+  <style>
+    .leaflet-container {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <script>
+    window.addEventListener("map:init", function (event) {
+      var map = event.detail.map;
+      var icon_pokemon = L.icon({
+        iconUrl: '{% static "pokemon/443.png" %}',
+        iconSize: [40, 40],
+        iconAnchor: [20, 20],
+      });
+      var options_icon = {
+        icon: icon_pokemon
+      };
+      var options_tooltip = {
+        permanent: true,
+        opacity: 0.8,
+        direction: 'top',
+        offset: L.point({
+          x: 0,
+          y: -10
+        })
+      };
+      const data = JSON.parse(document.getElementById('pokemon-data').textContent);
+      for (const pokemon of data) {
+        L.marker([pokemon.lat, pokemon.lon], options_icon).addTo(map).bindTooltip(pokemon.time, options_tooltip)
+      }
+      // center map
+      map.panTo(new L.LatLng(49.872042, 8.655574));
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Pokefinder</h1>
+  {% leaflet_map "pokefinder" %}
+</body>
+
+</html>
