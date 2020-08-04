@@ -1,6 +1,14 @@
-# pipenv
+# Pokefinder
 
-Install packages using `pipenv install package`
+## Guide
 
-Run project with `pipenv run python main.py'
+Use `pipenv`:
 
+```
+pipenv install -r requirements.txt
+pipenv run python manage.py runserver 0.0.0.0:8000
+```
+
+## Screenshots
+
+![promo](res/promo.png)
