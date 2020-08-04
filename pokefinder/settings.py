@@ -32,7 +32,7 @@ SECRET_KEY = DBPARMS['secret_key']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [DBPARMS['allowed_hosts']]
 
 
 # Application definition
@@ -137,7 +137,7 @@ STATIC_URL = '/static/'
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (49.872042, 8.655574),
     'DEFAULT_ZOOM': 15,
-    'MIN_ZOOM': 14,
+    'MIN_ZOOM': 13,
     'MAX_ZOOM': 18,
     'DEFAULT_PRECISION': 6,
     'MINIMAP': False,
