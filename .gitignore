@@ -130,3 +130,6 @@ dmypy.json
 
 # conf files
 conf/settings.ini
+
+# runner
+run.sh
