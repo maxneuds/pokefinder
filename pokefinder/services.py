@@ -7,9 +7,9 @@ import mysql.connector
 from django.conf import settings
 
 
-PATH_POKEMON_CSV = os.path.join(settings.BASE_DIR, 'pokemon.csv')
+PATH_POKEMON_CSV = os.path.join(settings.BASE_DIR, 'static/pokemon.csv')
 PATH_CONF = os.path.join(settings.BASE_DIR, 'conf/settings.ini')
-CONFIG = configparser.ConfigParser()
+CONFIG = configparser.RawConfigParser()
 CONFIG.read(PATH_CONF)
 DBPARMS = CONFIG['DB']
 HOST = DBPARMS['host']
