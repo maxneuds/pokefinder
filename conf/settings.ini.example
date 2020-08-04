@@ -1,5 +1,6 @@
 [DJANGO]
 secret_key = keyhere
+allowed_hosts = hostname
 
 [DB]
 host = 127.0.0.1

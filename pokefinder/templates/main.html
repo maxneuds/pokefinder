@@ -8,6 +8,8 @@
 
   {{ data|json_script:"pokemon-data" }}
 
+	<meta name="viewport" content="width=device-width, initial-scale=1.1, maximum-scale=1.1, user-scalable=no" />
+	<meta http-equiv="refresh" content="60">
 
   <style>
     .leaflet-container {
@@ -20,8 +22,8 @@
       var map = event.detail.map;
       var icon_pokemon = L.icon({
         iconUrl: '{% static "pokemon/443.png" %}',
-        iconSize: [40, 40],
-        iconAnchor: [20, 20],
+        iconSize: [50, 50],
+        iconAnchor: [25, 25],
       });
       var options_icon = {
         icon: icon_pokemon
@@ -46,7 +48,6 @@
 </head>
 
 <body>
-  <h1>Pokefinder</h1>
   {% leaflet_map "pokefinder" %}
 </body>
 
